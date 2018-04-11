@@ -1,0 +1,10 @@
+{
+  "/api/BusRoutes": {
+    "target": "http://datamall2.mytransport.sg/ltaodataservice/BusRoutes?",
+    "secure": true,
+    "pathRewrite": {
+    "^/posts": ""
+  },
+    "changeOrigin": true
+  }
+}
