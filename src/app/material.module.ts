@@ -5,6 +5,8 @@ import { MatButtonModule,
          MatInputModule, 
          MatProgressSpinnerModule, 
          MatCardModule, 
+         MatGridListModule,
+         MatTooltipModule,
          MatIconModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatListModule } from '@angular/material/list';
@@ -17,6 +19,8 @@ import { MatListModule } from '@angular/material/list';
               MatCardModule, 
               MatExpansionModule, 
               MatIconModule,
+              MatGridListModule,
+              MatTooltipModule,
               MatListModule],
     exports: [MatButtonModule, 
               MatToolbarModule, 
@@ -25,6 +29,8 @@ import { MatListModule } from '@angular/material/list';
               MatCardModule, 
               MatExpansionModule,
               MatIconModule,
+              MatGridListModule,
+              MatTooltipModule,
               MatListModule]
 })
 

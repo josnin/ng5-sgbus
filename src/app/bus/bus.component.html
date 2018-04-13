@@ -1,25 +1,62 @@
-<button mat-button> My button </button>
-
 
 
 <mat-accordion>
-    <mat-expansion-panel *ngFor="let bus of busroutes?.value" (opened)="getBusArrivals(bus.BusStopCode)">
+    <mat-expansion-panel *ngFor="let br of busroutes?.value" (opened)="getBusArrivals(br.BusStopCode)">
     <mat-expansion-panel-header>
       <mat-panel-title>
-          BusStopCode: {{bus.BusStopCode}}
+          BusStopCode: {{br.BusStopCode}}
       </mat-panel-title>
     </mat-expansion-panel-header>
 
     <ng-template matExpansionPanelContent>
 
-        <mat-list>
-          <h3 mat-subheader>Bus No.</h3>
-          <mat-list-item *ngFor="let ba of busarrivals.Services">
-            <mat-icon mat-list-icon>folder</mat-icon>
-            <h4 mat-line>{{ba.ServiceNo}}</h4>
-            <p mat-line> {{ba.Operator}} </p>
+        <mat-nav-list>
+            <!--<h3 mat-subheader>Bus No.</h3> -->
+          <mat-list-item *ngFor="let ba of busarrivals?.Services">
+              <p matLine>
+                  
+                    <mat-grid-list cols="5" rowHeight="50px">
+                        <mat-grid-tile><span matTooltip="BusNo">{{ba.ServiceNo}}</span></mat-grid-tile>
+                        <mat-grid-tile>
+               <span *ngIf="ba.NextBus.Feature == 'WAB'">
+                   <mat-icon mat-list-icon matTooltip="Wheel Chair Available">accessible</mat-icon>
+               </span>
+                            </mat-grid-tile>
+                        <mat-grid-tile>
+               <span *ngIf="ba.NextBus.Load == 'SEA'">
+                    <mat-icon mat-list-icon matTooltip="Seats Available">airline_seat_recline_extra</mat-icon>
+               </span>
+               <span *ngIf="ba.NextBus.Load == 'SDA'">
+                   <!--Standing Available-->
+                    <mat-icon mat-list-icon matTooltip="Standing Available">people</mat-icon>
+               </span>
+               <span *ngIf="ba.NextBus.Load == 'LSD'">
+                    <mat-icon mat-list-icon matTooltip="Limited Standing">person</mat-icon>
+               </span>
+                            </mat-grid-tile>
+
+                            <mat-grid-tile>
+               <span *ngIf="ba.NextBus.Type == 'SD'">
+                    <mat-icon mat-list-icon matTooltip="Single Deck">directions_bus</mat-icon>
+               </span>
+               <span *ngIf="ba.NextBus.Type == 'DD'">Double Deck</span>
+               <span *ngIf="ba.NextBus.Type == 'BD'">Bendy</span>
+
+                            </mat-grid-tile>
+              
+                        <mat-grid-tile>
+                            <span matTooltip="Estimated Arrival Time">
+                              {{ba.NextBus.EstimatedArrival}}      
+                            </span> 
+                            </mat-grid-tile>
+              
+                    </mat-grid-list>
+              
+              </p>  
+             
+
           </mat-list-item>
-        </mat-list>
+        </mat-nav-list>
 
      </ng-template>
 
