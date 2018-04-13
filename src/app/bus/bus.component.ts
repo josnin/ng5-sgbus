@@ -12,11 +12,15 @@ import { BusRoute } from '../bus.model';
 export class BusComponent implements OnInit {
 
   busroutes: BusRoute[];
+  panelOpenState: boolean = false;
+  //  busarrivals: RootObject[];
+  busarrivals: any; //TODO: must use model interface in bus.model
 
   constructor(public busService: BusService ) { }
 
   ngOnInit() {
     this.getBusRoutes();
+    //this.getBusArrivals();
   }
 
   getBusRoutes(): void {
@@ -24,4 +28,9 @@ export class BusComponent implements OnInit {
         .subscribe(busroutes => this.busroutes = busroutes);
   }  
 
+  getBusArrivals(id: number): void {
+    console.log(id);
+    this.busService.getBusArrival(id)
+        .subscribe(busarrivals => this.busarrivals = busarrivals);
+  }
 }

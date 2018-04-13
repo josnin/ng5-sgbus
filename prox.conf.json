@@ -3,8 +3,18 @@
     "target": "http://datamall2.mytransport.sg/ltaodataservice/BusRoutes?",
     "secure": true,
     "pathRewrite": {
-    "^/posts": ""
+    "^/api/BusRoutes": ""
+  },
+    "changeOrigin": true
+  },
+
+  "/api/BusArrivalv2": {
+    "target": "http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2",
+    "secure": true,
+    "pathRewrite": {
+    "^/api/BusArrivalv2": ""
   },
     "changeOrigin": true
   }
+
 }

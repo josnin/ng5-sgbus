@@ -1,7 +1,31 @@
-<p>
-  bus works!
-</p>
-  <div *ngFor="let bus of busroutes?.value">
-      <div> {{bus.ServiceNo}} </div>
-      <div>  {{bus.BusStopCode}} </div>
-  </div>
+<button mat-button> My button </button>
+
+
+
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let bus of busroutes?.value" (opened)="getBusArrivals(bus.BusStopCode)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          BusStopCode: {{bus.BusStopCode}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <ng-template matExpansionPanelContent>
+
+        <mat-list>
+          <h3 mat-subheader>Bus No.</h3>
+          <mat-list-item *ngFor="let ba of busarrivals.Services">
+            <mat-icon mat-list-icon>folder</mat-icon>
+            <h4 mat-line>{{ba.ServiceNo}}</h4>
+            <p mat-line> {{ba.Operator}} </p>
+          </mat-list-item>
+        </mat-list>
+
+     </ng-template>
+
+
+  </mat-expansion-panel>
+
+</mat-accordion>
+
+
