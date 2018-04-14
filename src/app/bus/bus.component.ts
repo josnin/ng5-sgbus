@@ -12,19 +12,24 @@ import { BusRoute } from '../bus.model';
 export class BusComponent implements OnInit {
 
   busroutes: BusRoute[];
-  panelOpenState: boolean = false;
+
   //  busarrivals: RootObject[];
   busarrivals: any; //TODO: must use model interface in bus.model
 
-  constructor(public busService: BusService ) { }
+  constructor(private busService: BusService ) { }
 
   ngOnInit() {
     this.getBusRoutes();
-    //this.getBusArrivals();
+  //this.getBusRoutesByServiceNo(100);
   }
 
   getBusRoutes(): void {
     this.busService.getBusRoutes()
+      .subscribe(busroutes => this.busroutes = busroutes);
+  }  
+  
+  getBusRoutesByServiceNo(id: number): void {
+    this.busService.getBusRoutesByServiceNo(id)
         .subscribe(busroutes => this.busroutes = busroutes);
   }  
 
@@ -33,4 +38,9 @@ export class BusComponent implements OnInit {
     this.busService.getBusArrival(id)
         .subscribe(busarrivals => this.busarrivals = busarrivals);
   }
+  
+  showBusRoutesbyBusNo(b_no: number) {
+    console.log(`bus no ${b_no}`);
+  }
+
 }

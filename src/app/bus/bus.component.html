@@ -1,5 +1,4 @@
 
-
 <mat-accordion>
     <mat-expansion-panel *ngFor="let br of busroutes?.value" (opened)="getBusArrivals(br.BusStopCode)">
     <mat-expansion-panel-header>
@@ -12,7 +11,7 @@
 
         <mat-nav-list>
             <!--<h3 mat-subheader>Bus No.</h3> -->
-          <mat-list-item *ngFor="let ba of busarrivals?.Services">
+          <mat-list-item *ngFor="let ba of busarrivals?.Services" (click)="showBusRoutesbyBusNo(ba.ServiceNo)">
               <p matLine>
                   
                     <mat-grid-list cols="5" rowHeight="50px">

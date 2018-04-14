@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, filter } from 'rxjs/operators';
+import { from } from 'rxjs/observable/from';
 
 import { BusRoute } from './bus.model';
 
 const httpOptions = { // TODO: must change the account key
-    headers: new HttpHeaders({ 'AccountKey': 'xxxxx', 'Accept': 'application/json' })
+    headers: new HttpHeaders({ 'AccountKey': '', 'Accept': 'application/json' })
 };
 
 @Injectable()
@@ -25,6 +26,18 @@ export class BusService {
           tap(busroutes => console.log(busroutes)),
           catchError(this.handleError('getBusRoutes', []))               
         );
+  }
+
+  getBusRoutesByServiceNo(ServiceNo: number): Observable<any> {
+      return this.http.get<any>(this.busrouteUrl, httpOptions)
+          .pipe(
+            map(res => { 
+                let br = res.value.filter(res1 => res1.ServiceNo == ServiceNo);
+                return br;
+            }),
+            tap(busroutes => console.log(`fetched ServiceNo=${ServiceNo}`)),
+            catchError(this.handleError(`getBusRoutes ServiceNo=${ServiceNo}`))
+          );
   }
 
   //TODO: must use interface from bus.model instead of using generic any
