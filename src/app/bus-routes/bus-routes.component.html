@@ -1,3 +1,19 @@
-<p>
-   {{ b_routes | json }}
-</p>
+
+BusNo:
+
+<mat-vertical-stepper >
+
+     <ng-template matStepperIcon="android">
+         <mat-icon>android</mat-icon>
+  </ng-template>
+
+  <ng-template matStepperIcon="announcement">
+         <mat-icon>announcement</mat-icon>
+  </ng-template>
+
+
+    <mat-step *ngFor="let b of b_routes" label="{{b.BusStopCode}}">
+        {{b.BusStopCode}}
+  </mat-step>
+</mat-vertical-stepper>
+

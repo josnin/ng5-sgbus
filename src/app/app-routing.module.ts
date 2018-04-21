@@ -5,7 +5,7 @@ import { BusComponent } from './bus/bus.component';
 import { BusRoutesComponent } from './bus-routes/bus-routes.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/', pathMatch: 'full' },
+    { path: '', redirectTo: '/bus', pathMatch: 'full' },
     { path: 'busroutes/:id', component: BusRoutesComponent },
     { path: 'bus', component: BusComponent }
 ];

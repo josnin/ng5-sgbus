@@ -7,9 +7,10 @@ import { MatButtonModule,
          MatCardModule, 
          MatGridListModule,
          MatTooltipModule,
+         MatStepperModule,
+         MatExpansionModule,
+         MatListModule,
          MatIconModule } from '@angular/material';
-import { MatExpansionModule } from '@angular/material/expansion'
-import { MatListModule } from '@angular/material/list';
 
 @NgModule({
     imports: [MatButtonModule, 
@@ -21,6 +22,7 @@ import { MatListModule } from '@angular/material/list';
               MatIconModule,
               MatGridListModule,
               MatTooltipModule,
+              MatStepperModule,
               MatListModule],
     exports: [MatButtonModule, 
               MatToolbarModule, 
@@ -31,6 +33,7 @@ import { MatListModule } from '@angular/material/list';
               MatIconModule,
               MatGridListModule,
               MatTooltipModule,
+              MatStepperModule,
               MatListModule]
 })
 

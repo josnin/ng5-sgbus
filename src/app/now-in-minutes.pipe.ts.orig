@@ -1,0 +1,19 @@
+import { Pipe, PipeTransform } from  '@angular/core';
+/*
+ *  minutes from (date) - now
+ * Usage:
+ * value | NowInMinutes
+ * Example:
+ * {{ 2018-04-15T16:41:27+08:00 | NowInMinutes }}
+ * formats to 3
+*/
+
+@Pipe({name: 'NowInMinutes'})
+export class NowInMinutesPipe implements PipeTransform {
+    transform(value: any): any {
+    // let dt = new Date(value);
+    //  return dt-Date.now();
+        return value;
+    }
+}
+
