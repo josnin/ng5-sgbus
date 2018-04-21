@@ -10,7 +10,7 @@ import { forkJoin } from 'rxjs/observable/forkJoin';
 import { BusRoute } from './bus.model';
 
 const httpOptions = { // TODO: must change the account key
-    headers: new HttpHeaders({ 'AccountKey': '', 'Accept': 'application/json' })
+    headers: new HttpHeaders({ 'AccountKey': 'fiteT+ywT6eoODxjn1IHLg==', 'Accept': 'application/json' })
 };
 
 @Injectable()
@@ -21,45 +21,46 @@ export class BusService {
 
   constructor(private http: HttpClient) { }
 
-    getBusRoutes(): Observable<BusRoute[]> {
-          return this.http.get<BusRoute[]>(this.busrouteUrl, httpOptions)
-          .pipe(
-            tap(busroutes => console.log(busroutes)),
-            catchError(this.handleError('getBusRoutes', []))               
-          );
-          }
-
-  getBusRoutesByServiceNo(ServiceNo: number): Observable<any[]> {
+  getBusRoutes(): Observable<any[]> {
 
       let br_url = [];
-      
-      for (let c of Array(50).fill(0).map((v, i) => 0 + i * 500)) { // this handle API 500 limit per request
-        br_url.push(this.http.get<any>(`${this.busrouteUrl}?$skip=${c}`, httpOptions));
+      for (let c of Array(50).fill(0).map((v, i) => 0 + i * 500)) {
+        br_url.push(this.http.get(`${this.busrouteUrl}?$skip=${c}`, httpOptions));
       }  
-
       return forkJoin(br_url)
         .pipe(
             map(res => {
-
                 let br = [];
-
-                for (let c of Array.from(Array(50).keys())) { // this handle API 500 limit per request
-                let res1 = res as any; //disable typescript strict in var type
-                    let has_results = res1[c].value.filter(res2 => res2.ServiceNo == ServiceNo)
-                    if (has_results.length > 0) { // make sure only non empty
+                for (let c of Array.from(Array(50).keys())) {
+                    let has_results = res[c].value.filter(res1 => res1.ServiceNo == 10)
+                    if (has_results.length > 0) {
                         br.push(has_results);
                     }
                 }
-
-                return [].concat(...br); // combine multiple arrays into 1 
+                return br;
 
             }),
-           tap(b_routes => console.log(b_routes)),
-           catchError(this.handleError('getBusRoutes', []))               
+          tap(busroutes => console.log(busroutes)),
+          catchError(this.handleError('getBusRoutes', []))               
         );
+        //return this.http.get<BusRoute[]>(this.busrouteUrl, httpOptions)
+        //re.pipe(
+        //re  tap(busroutes => console.log(busroutes)),
+        //re  catchError(this.handleError('getBusRoutes', []))               
+        //re);
   }
 
-
+  getBusRoutesByServiceNo(ServiceNo: number): Observable<any> {
+      return this.http.get<any>(this.busrouteUrl, httpOptions)
+          .pipe(
+            map(res => { 
+                let br = res.value.filter(res1 => res1.ServiceNo == ServiceNo);
+                return br;
+            }),
+            tap(busroutes => console.log(`fetched ServiceNo=${ServiceNo}`)),
+            catchError(this.handleError(`getBusRoutes ServiceNo=${ServiceNo}`))
+          );
+  }
 
   //TODO: must use interface from bus.model instead of using generic any
 

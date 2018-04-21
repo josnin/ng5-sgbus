@@ -10,8 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BusRoutesComponent implements OnInit {
 
-  b_routes: BusRoute[];
-  
+  private b_routes: BusRoute[];
+  private s_ServiceNo: number;
+
   constructor(
     private busService: BusService,
     private route: ActivatedRoute
@@ -23,6 +24,7 @@ export class BusRoutesComponent implements OnInit {
 
   getBusRouters(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+    this.s_ServiceNo = id;
     this.busService.getBusRoutesByServiceNo(id)
     .subscribe(b_routes => this.b_routes = b_routes);
   }

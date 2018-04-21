@@ -1,19 +1,16 @@
 
-BusNo:
+<h2 class="mat-h2">
+    Bus: {{s_ServiceNo}}
+</h2>
 
 <mat-vertical-stepper >
 
-     <ng-template matStepperIcon="android">
-         <mat-icon>android</mat-icon>
-  </ng-template>
+  <!--<ng-template matStepperIcon="edit"></ng-template>--> <!-- do this when you want to custom icon for edit -->
+  <!--<ng-template matStepperIcon="done"></ng-template>--> <!-- do this when you wnat to custom icon for done -->
 
-  <ng-template matStepperIcon="announcement">
-         <mat-icon>announcement</mat-icon>
-  </ng-template>
-
-
-    <mat-step *ngFor="let b of b_routes" label="{{b.BusStopCode}}">
-        {{b.BusStopCode}}
+  <mat-step *ngFor="let b of b_routes" [completed]="false"> <!-- set completed false to always display no -->
+        <ng-template matStepLabel>{{b.BusStopCode}}</ng-template>
   </mat-step>
+
 </mat-vertical-stepper>
 

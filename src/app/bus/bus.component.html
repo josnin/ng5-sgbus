@@ -1,9 +1,13 @@
 
+<h2 class="mat-h2">
+    Bus Stop Codes
+</h2>
+
 <mat-accordion>
     <mat-expansion-panel *ngFor="let br of busroutes?.value" (opened)="getBusArrivals(br.BusStopCode)">
     <mat-expansion-panel-header>
       <mat-panel-title>
-          BusStopCode: {{br.BusStopCode}}
+          {{br.BusStopCode}} (Road Name here?)
       </mat-panel-title>
     </mat-expansion-panel-header>
 
