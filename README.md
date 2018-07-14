@@ -11,9 +11,6 @@ Data provided by [LTA](https://www.lta.gov.sg) and partially by [OneMap](https:/
 
 Everything else: MIT
 
-# Feedback
-
-If you have any feedback, email me at [nino.capati@gmail.com](mailto:nino.capati@gmail.com).
 
 # Ng5Sgbus
 
