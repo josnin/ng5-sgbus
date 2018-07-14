@@ -8,11 +8,38 @@
     "changeOrigin": true
   },
 
+  "/api/BusServices": {
+    "target": "http://datamall2.mytransport.sg/ltaodataservice/BusServices",
+    "secure": true,
+    "pathRewrite": {
+    "^/api/BusServices": ""
+  },
+    "changeOrigin": true
+  },
+
   "/api/BusArrivalv2": {
     "target": "http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2",
     "secure": true,
     "pathRewrite": {
     "^/api/BusArrivalv2": ""
+  },
+    "changeOrigin": true
+  },
+
+  "/api/BusStops": {
+    "target": "http://datamall2.mytransport.sg/ltaodataservice/BusStops",
+    "secure": true,
+    "pathRewrite": {
+    "^/api/BusStops": ""
+  },
+    "changeOrigin": true
+  },
+
+  "/api/route": {
+    "target": "https://developers.onemap.sg/privateapi/routingsvc/route",
+    "secure": true,
+    "pathRewrite": {
+    "^/api/route": ""
   },
     "changeOrigin": true
   }

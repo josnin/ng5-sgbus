@@ -10,15 +10,16 @@ import { BusComponent } from './bus/bus.component';
 import { BusService } from './bus.service';
 
 import { HttpClientModule } from '@angular/common/http';
-import { BusRoutesComponent } from './bus-routes/bus-routes.component';
+import { RoutesComponent } from './routes/routes.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BusComponent,
-    BusRoutesComponent
+    RoutesComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +27,7 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
+    LeafletModule.forRoot(),
     AppRoutingModule
   ],
   providers: [BusService],

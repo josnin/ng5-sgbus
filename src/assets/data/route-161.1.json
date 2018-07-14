@@ -1,0 +1,91 @@
+[
+    {
+        "BusStopCode": "64009", 
+        "Desc": "Hougang Ctrl Int"
+    },
+    {
+        "BusStopCode": "64389",
+        "Desc": "Blk 522"
+    }, 
+    {
+        "BusStopCode": "64379", 
+        "Desc": "Punggol CC"
+    }, 
+    {
+        "BusStopCode": "64369", 
+        "Desc": "Blk 532"
+    },
+    {
+        "BusStopCode": "64359", 
+        "Desc": "Montfort Sch"
+    },
+    {
+        "BusStopCode": "64349", 
+        "Desc": "Blk 502"
+    }, 
+    {
+        "BusStopCode": "64411",
+        "Desc": "Blk 670"
+    }, 
+    {
+        "BusStopCode": "64601", 
+        "Desc": "Blk 919"
+    }, 
+    {
+        "BusStopCode": "64611", 
+        "Desc": "Blk 913"
+    }, 
+    {
+        "BusStopCode": "64469", 
+        "Desc": "Opp Blk 579"
+    }, 
+    {
+        "BusStopCode": "64629", 
+        "Desc": "Opp Blk 565"
+    }, 
+    {
+        "BusStopCode": "67459", 
+        "Desc": "Aft Buangkok Dr"
+    }, 
+    {
+        "BusStopCode": "67469", 
+        "Desc": "Bef Sengkang East Ave"
+    }, 
+    {
+        "BusStopCode": "67279", 
+        "Desc": "Blk 301D"
+    }, 
+    {
+        "BusStopCode": "67449", 
+        "Desc": "Blk 323B"
+    }, 
+    {
+        "BusStopCode": "67401", 
+        "Desc": "Opp Sengkang Stn/Blk 260A"
+    }, 
+    {
+        "BusStopCode": "67101", 
+        "Desc": "Blk 250A"
+    }, 
+    {
+        "BusStopCode": "65061", 
+        "Desc": "Blk 298A"
+    }, 
+    {
+        "BusStopCode": "46229", 
+        "Desc": "Opp Innova JC"
+    }, 
+    {
+        "BusStopCode": "46339", 
+        "Desc": "Blk 370"
+    }, 
+    {
+        "BusStopCode": "46639", 
+        "Desc": "Opp Blk 892C CP"
+    }, 
+    {
+        "BusStopCode": "46009", 
+        "Desc": "W'Lands Temp Int"
+    }
+]
+

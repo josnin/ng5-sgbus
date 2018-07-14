@@ -1,21 +1,26 @@
 
+
 <h2 class="mat-h2">
-    Bus Stop Codes
+    <strong>Bus Stops</strong>
 </h2>
 
+
 <mat-accordion>
-    <mat-expansion-panel *ngFor="let br of busroutes?.value" (opened)="getBusArrivals(br.BusStopCode)">
+    <mat-expansion-panel *ngFor="let b of bStopsCode" (opened)="getBusArrivals(b.BusStopCode)">
     <mat-expansion-panel-header>
       <mat-panel-title>
-          {{br.BusStopCode}} (Road Name here?)
+          {{b.BusStopCode}} {{b.Description}} 
       </mat-panel-title>
+       <mat-panel-description>
+           {{b.RoadName}}
+      </mat-panel-description>
     </mat-expansion-panel-header>
 
     <ng-template matExpansionPanelContent>
 
         <mat-nav-list>
             <!--<h3 mat-subheader>Bus No.</h3> -->
-            <mat-list-item *ngFor="let ba of busarrivals?.Services" routerLink="/busroutes/{{ba.ServiceNo}}">
+            <mat-list-item *ngFor="let ba of bArrivals?.Services" routerLink="/routes/{{ba.ServiceNo}}">
               <p matLine>
                   
                     <mat-grid-list cols="5" rowHeight="50px">

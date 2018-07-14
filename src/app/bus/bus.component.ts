@@ -1,46 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-//import { Bus } from '../bus';
 import { BusService } from '../bus.service';
-
-import { BusRoute } from '../bus.model';
+import { BusStopModel } from '../bus.model';
 
 @Component({
   selector: 'app-bus',
   templateUrl: './bus.component.html',
   styleUrls: ['./bus.component.css']
 })
+
 export class BusComponent implements OnInit {
 
-  busroutes: BusRoute[];
+  bArrivals: any; //TODO: must use model interface in bus.model
+  bStopsCode: BusStopModel[];
 
-  //  busarrivals: RootObject[];
-  busarrivals: any; //TODO: must use model interface in bus.model
-
-  constructor(private busService: BusService ) { }
+  constructor(private bs: BusService ) { }
 
   ngOnInit() {
-    this.getBusRoutes();
-  //this.getBusRoutesByServiceNo(100);
+    this.bs.getBusStops().subscribe(res => this.bStopsCode = res);
   }
-
-  getBusRoutes(): void {
-    this.busService.getBusRoutes()
-      .subscribe(busroutes => this.busroutes = busroutes);
-  }  
-  
-  getBusRoutesByServiceNo(id: number): void {
-    this.busService.getBusRoutesByServiceNo(id)
-        .subscribe(busroutes => this.busroutes = busroutes);
-  }  
 
   getBusArrivals(id: number): void {
-    console.log(id);
-    this.busService.getBusArrival(id)
-        .subscribe(busarrivals => this.busarrivals = busarrivals);
+    this.bs.getBusArrival(id).subscribe(res => this.bArrivals = res);
   }
   
-  showBusRoutesbyBusNo(b_no: number) {
-    console.log(`bus no ${b_no}`);
-  }
-
 }

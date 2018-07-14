@@ -1,0 +1,38 @@
+
+<h2 class="mat-h2">
+    Bus: {{this.bus}}
+</h2>
+
+    <div fxLayout="row">
+        <div fxFlex> <!-- auto give 70% -->
+            <div *ngIf="latLong" style="height:500px;"
+                 leaflet
+                 (leafletMapReady)="onMapReady($event)"
+                 [leafletOptions]="options">
+            </div> 
+        </div>    
+        <div fxFlex="30%">
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let b of busStops" (opened)="getBusArrivals(b.BusStopCode)">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                          {{b.BusStopCode}} 
+                      </mat-panel-title>
+                       <mat-panel-description>
+                           {{b.Desc}}
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <ng-template matExpansionPanelContent>
+
+
+                     </ng-template>
+
+
+                  </mat-expansion-panel>
+
+             </mat-accordion> 
+        </div>    
+
+    </div>
+
