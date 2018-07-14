@@ -9,7 +9,7 @@
 
 Data provided by [LTA](https://www.lta.gov.sg) and partially by [OneMap](https://onemap.sg).
 
-Everything else: MIT
+MIT
 
 
 # Ng5Sgbus
