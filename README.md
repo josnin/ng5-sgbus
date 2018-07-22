@@ -1,7 +1,7 @@
 
 # SGBUS
 
-![alt text](https://user-images.githubusercontent.com/3206118/42724510-55b30d86-87a6-11e8-928e-5c73eeb7c892.png)
+![alt text](https://user-images.githubusercontent.com/3206118/43042683-0bd0f23a-8db6-11e8-9484-12223d65cf98.png)
 
 ![alt text](https://user-images.githubusercontent.com/3206118/42724503-228c7820-87a6-11e8-8ae3-f85d71dad096.png)
 
