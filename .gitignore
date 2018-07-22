@@ -11,8 +11,11 @@
 
 # IDEs and editors
 /.idea
+*.swl
 *.swp
+*.swm
 *.swo
+*.swn
 .project
 .classpath
 .c9/

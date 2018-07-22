@@ -29,7 +29,7 @@ export class BusService {
     getBusStops(limit: number = 15): Observable<BusStopModel[]> {
         const url = `assets/data/bus-stops.json`;
         return this.http.get<BusStopModel[]>(url).pipe(
-            map(res => res.slice(0, limit) )
+            map(res => res.splice(0, limit) )
         );
     }
 

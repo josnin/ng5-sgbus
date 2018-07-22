@@ -7,6 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { BusComponent } from './bus/bus.component';
+import { NowInMinutesPipe } from './now-in-minutes.pipe'
 import { BusService } from './bus.service';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +21,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     AppComponent,
     BusComponent,
     RoutesComponent,
+    NowInMinutesPipe
   ],
   imports: [
     BrowserModule,
