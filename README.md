@@ -1,3 +1,17 @@
+
+# SGBUS
+
+![alt text](https://user-images.githubusercontent.com/3206118/43042683-0bd0f23a-8db6-11e8-9484-12223d65cf98.png)
+
+![alt text](https://user-images.githubusercontent.com/3206118/42724503-228c7820-87a6-11e8-8ae3-f85d71dad096.png)
+
+# License
+
+Data provided by [LTA](https://www.lta.gov.sg) and partially by [OneMap](https://onemap.sg).
+
+MIT
+
+
 # Ng5Sgbus
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
