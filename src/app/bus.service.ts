@@ -26,10 +26,27 @@ export class BusService {
         return this.http.get(url);
     }  
 
-    getBusStops(limit: number = 15): Observable<BusStopModel[]> {
+    getBusStops(limit: number, lat: any, lon: any): Observable<BusStopModel[]> {
         const url = `assets/data/bus-stops.json`;
         return this.http.get<BusStopModel[]>(url).pipe(
-            map(res => res.splice(0, limit) )
+            map( res =>
+                { 
+                    let nearPlace = [];
+
+                    for ( let r of res ) {
+
+                        let disKm = this.PythagorasEquirectangular(lat, lon, r.Latitude, r.Longitude);
+                        if (disKm <= 0.4) { //show only till 0.4 km 
+                            r['km'] = disKm;
+                            nearPlace.push(r);
+                        }
+                
+                    }  
+
+                    // sort by KM distance to display nearest bus stop
+                    return nearPlace.sort((a, b) => a.km - b.km) ;
+                
+                })
         );
     }
 
@@ -71,4 +88,22 @@ export class BusService {
     }    
 
   
+    // Convert Degress to Radians
+    Deg2Rad(deg: any): any {
+        return deg * Math.PI / 180;
+    }
+
+    PythagorasEquirectangular(lat_1: any, lon_1: any, lat_2: any, lon_2: any): any {
+      let lat1 = this.Deg2Rad(lat_1);
+      let lat2 = this.Deg2Rad(lat_2);
+      let lon1 = this.Deg2Rad(lon_1);
+      let lon2 = this.Deg2Rad(lon_2);
+      let R = 6371; // km
+      let x = (lon2 - lon1) * Math.cos((lat1 + lat2) / 2);
+      let y = (lat2 - lat1);
+      let d = Math.sqrt(x * x + y * y) * R;
+      return d;
+      }
+
+
 }
