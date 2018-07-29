@@ -1,10 +1,10 @@
 
 # SGBUS
 
-### Main Page Display The Nearest Bus Stop closest to user Current Position (only w. in 0.4 km)
+### Display The Nearest Bus Stop to user current position (range w. in 0.4 km)
 ![alt text](https://user-images.githubusercontent.com/3206118/43356910-ad8bf2ce-92ab-11e8-8cff-1de629286941.png)
 
-### Detail Page Display the Bus Routes via Map
+### Display the Bus Routes via Map
 ![alt text](https://user-images.githubusercontent.com/3206118/43356963-617d5bec-92ac-11e8-9d5d-37dee280f611.png)
 
 # License
