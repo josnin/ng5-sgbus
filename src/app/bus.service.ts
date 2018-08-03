@@ -10,7 +10,7 @@ import { forkJoin } from 'rxjs/observable/forkJoin';
 import { BusStopModel } from './bus.model';
 import { environment } from '../environments/environment';
 
-const httpOptions = { // TODO: must change the account key
+const httpOptions = { 
     headers: new HttpHeaders({ 'AccountKey': environment.LTA_ACCOUNT_KEY, 'Accept': 'application/json' })
 };
 
